@@ -1,0 +1,15 @@
+# Versioning
+.git
+.gitignore
+
+.dockerignore
+
+# compiled output
+node_modules
+
+# dotenv environment variable files
+*.env
+
+.eslintrc.js
+.prettierrc
+README.md

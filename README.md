@@ -6,6 +6,10 @@
   A simple backend with microservice architecture where users can upload their attempts for specific songs
 </p>
 
+<h4 align="center"> 
+	🚧 Under development... 🚧
+</h4>
+
 ---
 
 <p align="center">

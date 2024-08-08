@@ -1,73 +1,144 @@
+<p align="center"> 
+  <img src="https://github.com/user-attachments/assets/29c77361-db25-41dd-a92c-e9ffa044ed0a" width="750px;" alt=""/>
+</p>
+
+<p align="center"> 
+  A simple backend with microservice architecture where users can upload their attempts for specific songs
+</p>
+
+---
+
 <p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
+ <a href="#routes">API Endpoints</a> •
+ <a href="#requisitos">Prerequisites</a> • 
+ <a href="#running">Running the Project</a> • 
+ <a href="#env">Env</a> • 
+ <a href="#techs">Technologies</a> • 
+ <a href="#autor">Author</a>
 </p>
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+<h3 id="requisitos">🪛 Prerequisites to run the project</h3>
+Before starting, you will need to have the following tools installed on your machine:
+<a href="https://git-scm.com">Git</a>, <a href="https://nodejs.org/en/">Node.js</a>, <a href="https://www.docker.com">Docker</a>. 
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+---
 
-## Description
-
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
-
-## Installation
+<h3 id="running">💻 Running the Project</h3>  
 
 ```bash
-$ npm install
-```
 
-## Running the app
+# Clone this repository
+
+$ git clone <henriquemoreiraa/nestjs-microservices-sa>
+
+# Access project folder in terminal/cmd
+
+$ cd nestjs-microservices-sa
+
+# Install the dependencies
+
+$ docker-compose up --build
+
+```
+---
+
+<h3 id="env">⚙️ .env enviroment variables</h3>   
 
 ```bash
-# development
-$ npm run start
+# For each project
 
-# watch mode
-$ npm run start:dev
+MONGODB_URI
+RABBIT_MQ_URI
+RABBIT_MQ_AUTH_QUEUE
 
-# production mode
-$ npm run start:prod
+# ./attempt/.env
+
+PORT
+RABBIT_MQ_ATTEMPT_QUEUE
+RABBIT_MQ_AUTH_QUEUE
+
+# ./auth/.env
+
+PORT
+JWT_SECRET
+
 ```
 
-## Test
+---
 
-```bash
-# unit tests
-$ npm run test
+<h3 id="techs">🛠 Technologies</h3>    
 
-# e2e tests
-$ npm run test:e2e
+The following tools were used in building the project:
 
-# test coverage
-$ npm run test:cov
+- [TypeScript](https://www.typescriptlang.org)
+
+- [Node.js](https://nodejs.org)
+
+- [Nest.js](https://nestjs.com)
+
+- [MongoDB](https://www.mongodb.com)
+
+- [Mongoose](https://mongoosejs.com)
+ 
+- [RabbitMQ](https://www.rabbitmq.com)
+  
+- [Docker](https://www.docker.com)
+---
+
+<h2 id="routes">📍 API Endpoints</h2>
+
+Here you can list the main routes of your API, and what are their expected request bodies.
+​
+| route               | description                                          
+|----------------------|-----------------------------------------------------
+| <kbd>POST /attempts</kbd>     | create new attempt [request details](#post-attempts-detail)
+| <kbd>GET /attempts</kbd>     | retrieve all attempts [response details](#get-attempts-detail)
+| <kbd>GET /attempts/:id</kbd>     | retrieve one attempt [response details](#get-attempt-detail)
+
+<h3 id="post-attempts-detail">POST /attempts</h3>
+
+**REQUEST**
+```json
+{
+  "musicName": "abc",
+  // "audioUrl": developing,
+}
 ```
 
-## Support
+<h3 id="get-attempts-detail">GET /attempts</h3>
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+**RESPONSE**
+```json
+[
+  {
+    "musicName": "abc",
+    // "audioUrl": developing,
+  }
+]
+```
 
-## Stay in touch
+<h3 id="get-attempt-detail">GET /attempt/:id</h3>
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+**RESPONSE**
+```json
+{
+  "musicName": "abc",
+  // "audioUrl": developing,
+}
+```
+---
 
-## License
+<h3 id="autor">😎 Author</h3>     
 
-Nest is [MIT licensed](LICENSE).
+ <img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/98126579?v=4" width="100px;" alt=""/>
+<a href="https://github.com/henriquemoreiraa">
+ <sub><b>Henrique Moreira</b></sub>
+</a>
+ <br />
+
+
+Made with ❤️ by Henrique Moreira 👋🏽 Get in touch!
+
+
+[![Twitter Badge](https://img.shields.io/badge/-@riqimoreiraa-1ca0f1?style=flat-square&labelColor=1ca0f1&logo=twitter&logoColor=white&link=https://twitter.com/riqimoreiraa)](https://twitter.com/riqimoreiraa) [![Linkedin Badge](https://img.shields.io/badge/-Henrique-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/henriquemoreirain/)](https://www.linkedin.com/in/henriquemoreirain/) 
+[![Gmail Badge](https://img.shields.io/badge/-riqimoreiraa@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:riqimoreiraa@gmail.com)](mailto:riqimoreiraa@gmail.com)
